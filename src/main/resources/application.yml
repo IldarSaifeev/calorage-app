@@ -10,3 +10,7 @@ spring:
     mongodb:
       host: localhost
       database: calorage
+  security:
+    user:
+      name: ildar
+      password: ildar

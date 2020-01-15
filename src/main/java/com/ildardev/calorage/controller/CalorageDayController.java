@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/day")
@@ -19,8 +20,9 @@ public class CalorageDayController {
     private CalorageDayService calorageDayService;
 
     @PostMapping
-    public ResponseEntity createCalorageDay(@RequestBody @Valid CalorageDayDTO calorageDay) {
-        String calorageDayId = calorageDayService.createCalorageDay(calorageDay);
+    public ResponseEntity createCalorageDay(Principal principal,
+                                            @RequestBody @Valid CalorageDayDTO calorageDay) {
+        String calorageDayId = calorageDayService.createCalorageDay(principal, calorageDay);
         return ResponseEntity.created(URI.create("/day/" + calorageDayId)).build();
     }
 

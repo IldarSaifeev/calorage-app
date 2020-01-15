@@ -14,6 +14,7 @@ import lombok.NonNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Service
@@ -27,12 +28,13 @@ public class CalorageDayService {
     /**
      * @return calorageDay.id
      */
-    public String createCalorageDay(@NonNull CalorageDayDTO calorageDayDTO) {
+    public String createCalorageDay(Principal principal, @NonNull CalorageDayDTO calorageDayDTO) {
         if (calorageDayRepository.existsByDate(calorageDayDTO.getDate())) {
             throw new CalorageDayExistsException();
         }
 
         CalorageDay calorageDay = modelMapper.map(calorageDayDTO, CalorageDay.class);
+        calorageDay.setUserLogin(principal.getName());
         return calorageDayRepository.save(calorageDay).getId();
     }
 

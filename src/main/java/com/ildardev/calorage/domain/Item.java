@@ -2,11 +2,13 @@ package com.ildardev.calorage.domain;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Единица еды (продукт)
  */
 @Data
+@Document
 public class Item {
 
     @Id
