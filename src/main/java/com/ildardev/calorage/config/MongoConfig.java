@@ -17,7 +17,7 @@ public class MongoConfig {
     private String mongoDatabase;
 
     @Bean
-    public Mongobee mongobee(){
+    public Mongobee mongobee() {
         Mongobee runner = new Mongobee("mongodb://" + mongoHost + ":27017");
         runner.setDbName(mongoDatabase);
         runner.setChangeLogsScanPackage("com.ildardev.calorage.migration");

@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 @Data
 public class ServingDTO {
 
+    private String id;
+
     /**
      * Съеденный продукт
      */

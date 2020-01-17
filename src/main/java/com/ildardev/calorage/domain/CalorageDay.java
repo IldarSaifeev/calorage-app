@@ -36,9 +36,8 @@ public class CalorageDay {
      */
     private int dailyLimit;
 
-    public BigDecimal getTotalCalorage() {
-        return servings.stream()
-                .map(Serving::getTotalCalorage)
-                .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
+    /**
+     * Общеее кол-во потребленных калорий за день
+     */
+    private BigDecimal totalCalorage = BigDecimal.ZERO;
 }

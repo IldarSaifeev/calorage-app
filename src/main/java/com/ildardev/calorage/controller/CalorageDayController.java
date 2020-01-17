@@ -34,9 +34,16 @@ public class CalorageDayController {
     }
 
     @PostMapping("/{calorageDayId}/serving")
-    public ResponseEntity addService(@PathVariable String calorageDayId,
+    public ResponseEntity addServing(@PathVariable String calorageDayId,
                                      @RequestBody @Valid ServingDTO serving) {
         calorageDayService.addServing(calorageDayId, serving);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/{calorageDayId}/serving/{servingId}")
+    public ResponseEntity deleteServing(@PathVariable String calorageDayId,
+                                        @PathVariable String servingId) {
+        calorageDayService.deleteServing(calorageDayId, servingId);
         return ResponseEntity.ok().build();
     }
 }

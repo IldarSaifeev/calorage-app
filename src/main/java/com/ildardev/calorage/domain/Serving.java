@@ -10,6 +10,8 @@ import java.math.BigDecimal;
 @Data
 public class Serving {
 
+    private String id;
+
     /**
      * Съеденный продукт
      */
